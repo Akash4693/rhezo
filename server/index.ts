@@ -38,6 +38,9 @@ app.use(cors(corsOptions));
 app.get("/test", (_req, res) => {
   res.send("Hello world!");
 });
+app.get("/api/v1/user", (_req, res) => {
+  res.json({ message: "Users route working!" });
+});
 
 // api
 app.use("/api/v1/user", userRoute);
