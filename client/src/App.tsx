@@ -1,5 +1,4 @@
 import Login from "./auth/Login";
-
 import Signup from "./auth/Signup";
 import ForgotPassword from "./auth/ForgotPassword";
 import ResetPassword from "./auth/ResetPassword";
@@ -22,7 +21,7 @@ import {
 } from "react-router-dom";
 import React, { useEffect } from "react";
 import Loading from "./components/Loading";
-import { ThemeStore, useThemeStore } from "./store/useThemeStore";
+import { useThemeStore } from "./store/useThemeStore";
 
 interface ProtectedRouteProps {
   children: React.ReactNode;
@@ -142,9 +141,7 @@ const appRouter = createBrowserRouter([
 ]);
 
 function App() {
-  const initializeTheme = useThemeStore(
-    (state: ThemeStore) => state.initializeTheme
-  );
+  const initializeTheme = useThemeStore((state) => state.initializeTheme);
   const { checkAuthentication, isCheckingAuth } = useUserStore();
   // checking auth every time when page is loaded
   useEffect(() => {
