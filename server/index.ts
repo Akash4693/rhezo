@@ -11,7 +11,9 @@ import menuRoute from "./routes/menu.route";
 import orderRoute from "./routes/order.route";
 import path from "path";
 
-dotenv.config();
+if (process.env.NODE_ENV !== "production") {
+  dotenv.config();
+}
 
 const app = express();
 
