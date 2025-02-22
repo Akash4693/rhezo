@@ -35,7 +35,7 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-app.get("/", (req, res) => {
+app.get("/", (_req, res) => {
   res.send("Hello world!");
 });
 
