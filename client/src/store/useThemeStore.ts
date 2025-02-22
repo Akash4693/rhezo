@@ -3,7 +3,7 @@ import { createJSONStorage, persist } from "zustand/middleware";
 
 export type Theme = "dark" | "light";
 
-type ThemeStore = {
+export type ThemeStore = {
   theme: Theme;
   setTheme: (theme: Theme) => void;
   loadThemeFromStorage: (storageKey: string, defaultTheme: Theme) => void;
@@ -21,7 +21,8 @@ export const useThemeStore = create<ThemeStore>()(
         set({ theme });
       },
       loadThemeFromStorage: (storageKey: string, defaultTheme: Theme) => {
-        const storedTheme = (localStorage.getItem(storageKey) as Theme) || defaultTheme;
+        const storedTheme =
+          (localStorage.getItem(storageKey) as Theme) || defaultTheme;
         set({ theme: storedTheme });
       },
       initializeTheme: () => {
