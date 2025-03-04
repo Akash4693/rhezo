@@ -42,7 +42,7 @@ const Login = () => {
         className="md:p-8 w-full max-w-md rounded-lg md:border border-gray-200 mx-4"
       >
         <div className="mb-4">
-          <h1 className="font-bold text-2xl">PatelEats</h1>
+          <h1 className="font-bold text-2xl">Rhezo</h1>
         </div>
         <div className="mb-4">
           <div className="relative">
@@ -77,7 +77,7 @@ const Login = () => {
           </div>
         </div>
         <div className="mb-10">
-          {loading ? (
+          {!loading ? (
             <Button disabled className="w-full bg-orange hover:bg-hoverOrange">
               <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Please wait
             </Button>

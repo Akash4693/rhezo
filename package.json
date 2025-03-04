@@ -1,14 +1,12 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "type": "module",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "dev": "nodemon server/index.ts",
     "stripe": "stripe listen --forward-to localhost:8000/api/v1/order/webhook",
     "start": "nodemon server/index.ts",
-    "build": "npm install && npx tsc"
+    "build": "nodemon server/index.ts"
   },
   "keywords": [],
   "author": "",

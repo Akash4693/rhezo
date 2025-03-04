@@ -11,6 +11,7 @@ export const sendVerificationEmail = async (
   verificationToken: string
 ) => {
   const recipient = [{ email }];
+  console.log("recipient: ", recipient);
   try {
     const res = await client.send({
       from: sender,
@@ -32,10 +33,10 @@ export const sendWelcomeEmail = async (email: string, name: string) => {
     const res = await client.send({
       from: sender,
       to: recipient,
-      subject: "Welcome to PatelEats",
+      subject: "Welcome to Rhezo",
       html: htmlContent,
       template_variables: {
-        company_info_name: "PatelEats",
+        company_info_name: "Rhezo",
         name: name,
       },
     });

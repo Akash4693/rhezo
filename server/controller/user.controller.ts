@@ -17,12 +17,8 @@ export const signup = async (req: Request, res: Response) => {
     const { fullname, email, password, contact } = req.body;
 
     let user = await User.findOne({ email });
-    if (user) {
-      return res.status(400).json({
-        success: false,
-        message: "User already exist with this email",
-      });
-    }
+     console.log("user", user)
+  
     const hashedPassword = await bcrypt.hash(password, 10);
     const verificationToken = generateVerificationCode();
 
@@ -55,7 +51,7 @@ export const login = async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
-    if (!user) {
+    if (!user || !user.password) {
       return res.status(400).json({
         success: false,
         message: "Incorrect email or password",
@@ -82,7 +78,7 @@ export const login = async (req: Request, res: Response) => {
       user: userWithoutPassword,
     });
   } catch (error) {
-    console.log(error);
+    console.log("User controller", error);
     return res.status(500).json({ message: "Internal server error" });
   }
 };
